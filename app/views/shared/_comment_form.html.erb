@@ -1,0 +1,9 @@
+<%= form_for(@comment, remote: true) do |f| %>
+  <div class="field">
+  <%= render 'shared/error_messages', object: f.object %>
+    <%= f.text_area :content, placeholder: "Compose new comment...", required: true %>
+    <%= f.hidden_field :micropost_id,  value: @micropost.id %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
